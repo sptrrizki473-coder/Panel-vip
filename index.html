@@ -77,7 +77,7 @@ cursor:pointer;
 </style>
 </head>
 
-<body>
+<tbody id="list"></tbody>
 
 <div class="container">
 
@@ -88,7 +88,7 @@ cursor:pointer;
 <input placeholder="Nama Yang Diinginkan">
 <input placeholder="Panel Murni">
 
-<button>Ganti Data</button>
+<button onclick="tambah()">Tambahkan</button>
 
 <input id="email" placeholder="Tambah Email">
 <input id="result" placeholder="Jumlah Result">
@@ -110,19 +110,23 @@ cursor:pointer;
 </div>
 
 <script>
-function tambahData(){
+function tambah(){
+
 let email = document.getElementById("email").value;
 let result = document.getElementById("result").value;
 
-let data = JSON.parse(localStorage.getItem("vip")) || [];
+let row = `
+<tr>
+<td>${email}</td>
+<td>${result}</td>
+<td onclick="this.parentElement.remove()">Hapus</td>
+</tr>
+`;
 
-data.push({email:email,result:result});
+document.getElementById("list").innerHTML += row;
 
-localStorage.setItem("vip",JSON.stringify(data));
-
-alert("Data tersimpan!");
 }
 </script>
 
-</body>
+<button onclick="tambah()">Tambahkan</button>
 </html>
