@@ -110,24 +110,18 @@ cursor:pointer;
 </div>
 
 <script>
+function tambahData(){
+let email = document.getElementById("email").value;
+let result = document.getElementById("result").value;
 
-function tambah(){
+let data = JSON.parse(localStorage.getItem("vip")) || [];
 
-let email=document.getElementById("email").value;
-let result=document.getElementById("result").value;
+data.push({email:email,result:result});
 
-let row=`
-<tr>
-<td>${email}</td>
-<td>${result}</td>
-<td class="hapus" onclick="this.parentElement.remove()">Hapus</td>
-</tr>
-`;
+localStorage.setItem("vip",JSON.stringify(data));
 
-document.getElementById("list").innerHTML+=row;
-
+alert("Data tersimpan!");
 }
-
 </script>
 
 </body>
