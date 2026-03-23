@@ -9,24 +9,32 @@ body{
 background:#0b1220;
 font-family:sans-serif;
 color:white;
-text-align:center;
 margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
 .container{
+width:90%;
 max-width:500px;
-margin:auto;
-padding:20px;
+background:#111827;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
 img{
-width:110px;
+width:100px;
 border-radius:50%;
-margin-top:20px;
+margin-bottom:10px;
 }
 
 h2{
 color:#a855f7;
+margin-bottom:20px;
 }
 
 input{
@@ -54,22 +62,16 @@ table{
 width:100%;
 margin-top:20px;
 border-collapse:collapse;
-background:#111827;
 }
 
 th,td{
 border:1px solid #374151;
-padding:10px;
+padding:8px;
 }
 
 .hapus{
 color:red;
 cursor:pointer;
-}
-
-.music{
-background:#10b981;
-margin-top:20px;
 }
 
 </style>
@@ -84,41 +86,28 @@ margin-top:20px;
 <h2>WELCOME TO IKYPANEL VIP</h2>
 
 <input placeholder="Nama Yang Diinginkan">
-
 <input placeholder="Panel Murni">
 
 <button>Ganti Data</button>
 
-<h3>Tambah Email</h3>
-
-<input id="email" placeholder="emailkamu@gmail.com">
-
+<input id="email" placeholder="Tambah Email">
 <input id="result" placeholder="Jumlah Result">
 
 <button onclick="tambah()">Tambahkan</button>
-
-<h3>Daftar Email</h3>
 
 <table>
 <thead>
 <tr>
 <th>Email</th>
-<th>Jumlah Result</th>
+<th>Result</th>
 <th>Aksi</th>
 </tr>
 </thead>
 
 <tbody id="list"></tbody>
-
 </table>
 
-<button class="music" onclick="musik()">🎵 Nyalakan Musik</button>
-
 </div>
-
-<audio id="lagu">
-<source src="https://files.catbox.moe/8v7s2x.mp3" type="audio/mp3">
-</audio>
 
 <script>
 
@@ -136,12 +125,6 @@ let row=`
 `;
 
 document.getElementById("list").innerHTML+=row;
-
-}
-
-function musik(){
-
-document.getElementById("lagu").play();
 
 }
 
